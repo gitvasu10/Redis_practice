@@ -1,0 +1,11 @@
+To install redis in UBuntu, use snap package.
+
+$sudo snap install redis
+
+This would install the required database management system.
+
+To use Redis command line, use the command
+
+$ redis.cli   (If one has install redis using snap, otherwise use the command $ redis-cli)
+
+now you are ready to delve into the redis environment...
