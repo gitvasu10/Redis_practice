@@ -1,0 +1,96 @@
+redis-cli
+127.0.0.1:6379> keys *
+ 1) "num3"
+ 2) "num2"
+ 3) "student1"
+ 4) "student2"
+ 5) "num1"
+ 6) "str1"
+ 7) "num4"
+ 8) "name3"
+ 9) "name2"
+10) "name"
+11) "name1"
+127.0.0.1:6379> hgetall
+(error) ERR wrong number of arguments for 'hgetall' command
+127.0.0.1:6379> hgetall student1
+1) "name"
+2) "Shashwat"
+3) "age"
+4) "27"
+5) "class"
+6) "PG"
+7) "surname"
+8) "Malasi"
+127.0.0.1:6379> hget student1
+(error) ERR wrong number of arguments for 'hget' command
+127.0.0.1:6379> hget student1 name
+"Shashwat"
+127.0.0.1:6379> hget num3
+(error) ERR wrong number of arguments for 'hget' command
+127.0.0.1:6379> key str1
+(error) ERR unknown command 'key', with args beginning with: 'str1' 
+127.0.0.1:6379> get str1
+"hello world!"
+127.0.0.1:6379> set num4 123
+OK
+127.0.0.1:6379> get num4
+"123"
+127.0.0.1:6379> hexists student1 name
+(integer) 1
+127.0.0.1:6379> hget student2 get
+(nil)
+127.0.0.1:6379> hget student2 name
+"Rishi"
+127.0.0.1:6379> hgetall
+(error) ERR wrong number of arguments for 'hgetall' command
+127.0.0.1:6379> hgetall student1
+1) "name"
+2) "Shashwat"
+3) "age"
+4) "27"
+5) "class"
+6) "PG"
+7) "surname"
+8) "Malasi"
+127.0.0.1:6379> hdel student1 class
+(integer) 1
+127.0.0.1:6379> hgetall student1
+1) "name"
+2) "Shashwat"
+3) "age"
+4) "27"
+5) "surname"
+6) "Malasi"
+127.0.0.1:6379> hmset student1 class "PG"
+OK
+127.0.0.1:6379> hgetall student1
+1) "name"
+2) "Shashwat"
+3) "age"
+4) "27"
+5) "surname"
+6) "Malasi"
+7) "class"
+8) "PG"
+127.0.0.1:6379> hkeys student1
+1) "name"
+2) "age"
+3) "surname"
+4) "class"
+127.0.0.1:6379> hvals student1
+1) "Shashwat"
+2) "27"
+3) "Malasi"
+4) "PG"
+127.0.0.1:6379> hincrby student1 age 1
+(integer) 28
+127.0.0.1:6379> hlen student1
+(integer) 4
+127.0.0.1:6379> hmget student name 
+1) (nil)
+127.0.0.1:6379> hmget student1 name 
+1) "Shashwat"
+127.0.0.1:6379> hmget student1 name 
+1) "Shashwat"
+
